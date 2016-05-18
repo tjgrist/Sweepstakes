@@ -22,6 +22,10 @@
 
 Create a SortedList, SortedList<ICustomString> sortedStringList, sorted by the length of each string element, populated by a mix of each of the ICustomString subclasses
 
+
+
+
+
 Using a Dictionary as an underlying structure, create a Sweepstakes class with the following functions (you will need to define a Contestant class containing appropriate fields for the purpose):
     Sweepstakes(string name)
     void RegisterContestant(Contestant contestant)

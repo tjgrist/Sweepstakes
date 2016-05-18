@@ -6,31 +6,32 @@ using System.Threading.Tasks;
 
 namespace Sweepstakes
 {
-    class SystemString : ICustomString
+    class CustomLinkedListString : ICustomString
     {
-        string myString;
+        CustomLinkedList customLinkedList;
 
-        public SystemString(string name)
+        public CustomLinkedListString(string someString)
         {
-            myString = name;
+            customLinkedList = new CustomLinkedList(someString);
         }
         public override string ToString()
         {
-            return myString;
+
+            return customLinkedList.ToString();
         }
         public void Insert(int startIndex, string stringToInsert)
         {
-            myString = myString.Insert(startIndex, stringToInsert);
+
         }
 
         public void Remove(int startIndex, int numCharsToRemove)
         {
-            myString = myString.Remove(startIndex, numCharsToRemove);
+
         }
 
         public int Length()
         {
-            return myString.Length;
+            return 100;
         }
     }
 }
