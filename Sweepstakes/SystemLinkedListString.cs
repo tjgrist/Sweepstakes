@@ -12,7 +12,6 @@ namespace Sweepstakes
 
         public SystemLinkedListString(string inputString)
         {
-            //linkedCharList = inputString.ToList()
             char[] inputCharArray = inputString.ToCharArray();
             foreach(char i in inputCharArray)
             {
@@ -21,19 +20,29 @@ namespace Sweepstakes
         }
         public override string ToString()
         {
-            //array copy method
             char[] array1 = linkedCharList.ToArray();
             string convertedString = string.Join(",", array1).Replace(",", "");
             return convertedString;
         }
         public void Insert(int startIndex, string stringToInsert)
         {
-
+            char charElement = linkedCharList.ElementAt(startIndex);
+            LinkedListNode<char> element = linkedCharList.Find(charElement);
+            for(int i = 0; i < stringToInsert.Count(); i++)
+            {
+                LinkedListNode<char> newChar = new LinkedListNode<char>(stringToInsert[i]);
+                linkedCharList.AddAfter(element, newChar);
+                element = newChar;
+            }
         }
 
         public void Remove(int startIndex, int numCharsToRemove)
         {
-
+            for(int i = 0; i < numCharsToRemove; i++)
+            {
+                char charElement = linkedCharList.ElementAt(startIndex);
+                linkedCharList.Remove(charElement);          
+            }
         }
 
         public int Length()
