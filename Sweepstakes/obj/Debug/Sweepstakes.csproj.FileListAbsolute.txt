@@ -1,6 +1,6 @@
 C:\Users\tjgrs\projects\visualstudio\Sweepstakes\Sweepstakes\bin\Debug\Sweepstakes.exe.config
 C:\Users\tjgrs\projects\visualstudio\Sweepstakes\Sweepstakes\bin\Debug\Sweepstakes.exe
 C:\Users\tjgrs\projects\visualstudio\Sweepstakes\Sweepstakes\bin\Debug\Sweepstakes.pdb
-C:\Users\tjgrs\projects\visualstudio\Sweepstakes\Sweepstakes\obj\Debug\Sweepstakes.csprojResolveAssemblyReference.cache
 C:\Users\tjgrs\projects\visualstudio\Sweepstakes\Sweepstakes\obj\Debug\Sweepstakes.exe
 C:\Users\tjgrs\projects\visualstudio\Sweepstakes\Sweepstakes\obj\Debug\Sweepstakes.pdb
+C:\Users\tjgrs\projects\visualstudio\Sweepstakes\Sweepstakes\obj\Debug\Sweepstakes.csprojResolveAssemblyReference.cache

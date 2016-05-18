@@ -8,36 +8,69 @@ namespace Sweepstakes
 {
     class CustomLinkedListString : ICustomString
     {
-        string someString;
         public Node headNode;
+        public Node tailNode;
+        public int numOfNodes;
         StringBuilder stringBuilder;
+
         public CustomLinkedListString(string someString)
         {
-            this.someString = someString;
+            numOfNodes = someString.Length;
             headNode = new Node(someString[0]);
+            tailNode = new Node(someString[someString.Length - 1]);
             linkNodes(someString);
         }
         public override string ToString()
         {
-            stringBuilder = getStringBuilder();
+            stringBuilder = stringbuilderShowNodes();
             return stringBuilder.ToString();
         }
         public void Insert(int startIndex, string stringToInsert)
         {
-            
-            someString = someString.Insert(startIndex, stringToInsert);
-            linkNodes(someString);
+            Node currentNode = headNode;
+            CustomLinkedListString newNodes = new CustomLinkedListString(stringToInsert);            
+            int count = 0;
+            while (count < startIndex)
+            {
+                currentNode = currentNode.nextNode;
+                if (count == startIndex - 1)
+                {
+                    newNodes.tailNode.nextNode = currentNode;                        //newnodes tail points to Overflow...
+                    currentNode.nextNode = newNodes.headNode;                   //the next node should point to the newnodes headnode;
+                    break;
+                }
+                count++;
+            }
+            Console.WriteLine();
+        }
+  
+        public void Insert2(int start, string word)
+        {
+            Node currentNode = headNode;
+            Node firstNode = null;
+            CustomLinkedListString newWord = new CustomLinkedListString(word);
+            for (int i = 0; i < Length(); i++)
+            {
+                if (i == start - 1)
+                {
+                    firstNode = currentNode;
+                    break;
+                }
+                currentNode = currentNode.nextNode;
+            }
+            newWord.tailNode = firstNode.nextNode;
+            firstNode.nextNode = newWord.headNode;
         }
 
         public void Remove(int startIndex, int numCharsToRemove)
         {
-            someString = someString.Remove(startIndex, numCharsToRemove);
-            linkNodes(someString);
+            //someString = someString.Remove(startIndex, numCharsToRemove);
+            //linkNodes(someString);
         }
 
         public int Length()
         {
-            return someString.Length;
+            return numOfNodes;
         }
 
         public void linkNodes(string someString)
@@ -49,9 +82,8 @@ namespace Sweepstakes
                 currentNode = currentNode.nextNode;
             }
         }
-        public StringBuilder getStringBuilder()
-        {
-            
+        public StringBuilder stringbuilderShowNodes()
+        {         
             StringBuilder stringBuilder = new StringBuilder();
             Node currentNode = headNode;
             while (currentNode != null)
