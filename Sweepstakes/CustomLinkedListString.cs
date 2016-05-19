@@ -32,40 +32,32 @@ namespace Sweepstakes
             int count = 0;
             while (count < startIndex)
             {
-                currentNode = currentNode.nextNode;
-                if (count == startIndex - 1)
-                {
-                    newNodes.tailNode.nextNode = currentNode;                        //newnodes tail points to Overflow...
-                    currentNode.nextNode = newNodes.headNode;                   //the next node should point to the newnodes headnode;
-                    break;
-                }
+                currentNode = currentNode.nextNode;   
                 count++;
             }
+            newNodes.tailNode.nextNode = currentNode.nextNode;               
+            currentNode.nextNode = newNodes.headNode;                       
             Console.WriteLine();
-        }
-  
-        public void Insert2(int start, string word)
-        {
-            Node currentNode = headNode;
-            Node firstNode = null;
-            CustomLinkedListString newWord = new CustomLinkedListString(word);
-            for (int i = 0; i < Length(); i++)
-            {
-                if (i == start - 1)
-                {
-                    firstNode = currentNode;
-                    break;
-                }
-                currentNode = currentNode.nextNode;
-            }
-            newWord.tailNode = firstNode.nextNode;
-            firstNode.nextNode = newWord.headNode;
         }
 
         public void Remove(int startIndex, int numCharsToRemove)
         {
-            //someString = someString.Remove(startIndex, numCharsToRemove);
-            //linkNodes(someString);
+            Node firstNode = headNode;
+            int count = 0;
+            int count2 = 0;
+            while (count < startIndex)
+            {
+                firstNode = firstNode.nextNode;
+                count++;
+            }
+            //have the current firstNode point to the node at numChars away
+            Node pointerNode = firstNode;
+            while (count2 < numCharsToRemove)
+            {
+                pointerNode = pointerNode.nextNode;
+                count2++;
+            }
+            firstNode.nextNode = pointerNode;
         }
 
         public int Length()
@@ -92,10 +84,6 @@ namespace Sweepstakes
                 currentNode = currentNode.nextNode;
             }
             return stringBuilder;
-        }
-        public void changeNodes()
-        {
-
         }
     }
 }
