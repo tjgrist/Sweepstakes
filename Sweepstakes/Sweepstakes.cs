@@ -8,11 +8,12 @@ namespace Sweepstakes
 {
     class Sweepstakes
     {
-        Dictionary<string, int> dictionary = new Dictionary<string, int>();
+        Dictionary<string, int> dictionary;
         string sweepstakesName;
         public Sweepstakes(string name)
         {
             sweepstakesName = name;
+            dictionary = new Dictionary<string, int>();
         }
         public void RegisterContestant(Contestant contestant)
         {
@@ -23,11 +24,12 @@ namespace Sweepstakes
             Random rand = new Random();
             int randomPick = rand.Next(0, dictionary.Count);
             var element = dictionary.ElementAt(randomPick);
-            return "Winner is: " + element.Key + ", Ticket Number: " + element.Value;
+            string winner = "Winner of " + sweepstakesName + " is "+ element.Key + ", with ticket: " + element.Value;
+            return winner;
         }
         public void PrintContestantInfo(Contestant contestant)
         {
-            Console.WriteLine("Contestant: " + contestant.Name + contestant.ticket);
+            Console.WriteLine("Contestant: " + contestant.Name + " " + contestant.ticket);
         }
         public void PrintAllContestantsInSweepstakes()
         {
